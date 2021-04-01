@@ -15,9 +15,9 @@ singular: 'pet',
 plural: 'pet'}
 );
 
-petModel.belongsTo(userModel , { as: 'owner', timestamps: false,
+pet.belongsTo(userModel , { as: 'owner', timestamps: false,
 foreignKey: 'web_user_id'});
-userModel.hasMany(petModel , { as: 'pets', timestamps: false,
+userModel.hasMany(pet , { as: 'pets', timestamps: false,
 foreignKey: 'web_user_id'});
 
 module.exports = pet;
