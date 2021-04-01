@@ -135,7 +135,7 @@ router.get('/pets', async (req, res) => {
 	}
 	else {
 			console.log(pet);
-			res.render('index', {allPet: pet});
+			res.render('pets', {allPet: pet});
 		}
 	}
 	catch(ex) {
