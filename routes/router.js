@@ -103,32 +103,32 @@ const passwordPepper = "SeCretPeppa4MySal+";
 // 	});
 // });
 
-// router.get('/', async (req, res) => {
-// 	console.log("page hit");
-// 	try {
-// 	const users = await userModel.findAll({attributes:
-// 	['web_user_id','first_name','last_name','email']}); //{where: {web_user_id:1}}
-// 		if (users === null) {
-// 		res.render('error', {message: 'Error connecting toMySQL'});
-// 		console.log("Error connecting to userModel");
-// 	}
-// 	else {
-// 			console.log(users);
-// 			res.render('index', {allUsers: users});
-// 		}
-// 	}
-// 	catch(ex) {
-// 		res.render('error', {message: 'Error connecting to MySQL'});
-// 		console.log("Error connecting to MySQL");
-// 		console.log(ex);
-// 	}
-// });
+router.get('/', async (req, res) => {
+	console.log("page hit");
+	try {
+	const users = await userModel.findAll({attributes:
+	['web_user_id','first_name','last_name','email']}); //{where: {web_user_id:1}}
+		if (users === null) {
+		res.render('error', {message: 'Error connecting toMySQL'});
+		console.log("Error connecting to userModel");
+	}
+	else {
+			console.log(users);
+			res.render('index', {allUsers: users});
+		}
+	}
+	catch(ex) {
+		res.render('error', {message: 'Error connecting to MySQL'});
+		console.log("Error connecting to MySQL");
+		console.log(ex);
+	}
+});
 
 router.get('/', async (req, res) => {
 	console.log("page hit");
 	try {
-	const pet = await pet.findAll({attributes:
-	['pet_id','web_user_id','name','pet_type_id']}); //{where: {web_user_id:1}}
+	const pet = await userModel.findAll({attributes:
+	['name']}); //{where: {web_user_id:1}}
 		if (pet === null) {
 		res.render('error', {message: 'Error connecting toMySQL'});
 		console.log("Error connecting to pet table");
