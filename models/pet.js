@@ -2,7 +2,7 @@ const userModel = include('models/web_user');
 const {Sequelize, DataTypes} = require('sequelize');
 const databaseConnectionString = include('/databaseConnectionSequelize');
 const sequelize = new Sequelize(databaseConnectionString);
-const pet = sequelize.define('pet',
+const petModel = sequelize.define('pet',
 {pet_id: {type: Sequelize.INTEGER, autoIncrement: true,
 primaryKey: true},
 web_user_id: {type: Sequelize.INTEGER, allowNull: false},
@@ -15,9 +15,9 @@ singular: 'pet',
 plural: 'pet'}
 );
 
-pet.belongsTo(userModel , { as: 'owner', timestamps: false,
+petModel.belongsTo(userModel , { as: 'owner', timestamps: false,
 foreignKey: 'web_user_id'});
-userModel.hasMany(pet , { as: 'pets', timestamps: false,
+userModel.hasMany(petModel , { as: 'pets', timestamps: false,
 foreignKey: 'web_user_id'});
 
-module.exports = pet;
+module.exports = petModel;

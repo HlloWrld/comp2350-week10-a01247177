@@ -5,7 +5,7 @@ const router = require('express').Router();
 const userModel = include('models/web_user');
 const crypto = require('crypto');
 const { v4: uuid } = require('uuid');
-const pet = require('../models/pet');
+const petModel = require('../models/pet');
 const passwordPepper = "SeCretPeppa4MySal+";
 
 // router.get('/', (req, res) => {
@@ -106,7 +106,7 @@ const passwordPepper = "SeCretPeppa4MySal+";
 router.get('/pets', async (req, res) => {
 	console.log("page hit");
 	try {
-		const pets = await pet.findAll({
+		const pets = await petModel.findAll({
 			attributes:
 				['name']
 		}); //{where: {web_user_id:1}}
