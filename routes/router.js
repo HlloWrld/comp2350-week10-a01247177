@@ -124,7 +124,7 @@ router.get('/', async (req, res) => {
 	}
 });
 
-router.get('/', async (req, res) => {
+router.get('/pets', async (req, res) => {
 	console.log("page hit");
 	try {
 	const pet = await userModel.findAll({attributes:
@@ -134,7 +134,7 @@ router.get('/', async (req, res) => {
 		console.log("Error connecting to pet table");
 	}
 	else {
-			console.log(users);
+			console.log(pet);
 			res.render('index', {allPet: pet});
 		}
 	}
