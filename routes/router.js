@@ -140,7 +140,7 @@ router.get('/showPets', async (req, res) => {
 			console.log(pets);
 			let owner = await pets[0].getOwner();
 			console.log(owner);
-			res.render('pets', { allPets: pets });
+			res.render('pets', { allPet: pets });
 		}
 	}
 	catch (ex) {
